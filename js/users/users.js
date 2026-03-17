@@ -1,21 +1,22 @@
 async function getAllUsers(){
   var users = await qeue(urlUsers, get);
+  
   console.log(users)
   table.clear();
   table.rows.add(users);
   table.draw();
 }
 
-async function getFindByIdUser(){
-  var id = document.getElementById("idFilter").value;
+// async function getFindByIdUser(){
+//   var id = document.getElementById("idFilter").value;
 
-  if (!id) return getAllUsers();
+//   if (!id) return getAllUsers();
 
-  let user = await qeue(urlUsers + "/" + id, get);
+//   let user = await qeue(urlUsers + "/" + id, get);
 
-  table.clear();
-  table.row.add(user).draw();
-}
+//   table.clear();
+//   table.row.add(user).draw();
+// }
 
 async function getAddUser(event) {
   event.preventDefault();
