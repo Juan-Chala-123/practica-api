@@ -12,21 +12,21 @@ async function getAllCarts() {
     });
 }
 
-async function getFindByIdCart() {
-    var id = document.getElementById("idFilter").value;
+// async function getFindByIdCart() {
+//     var id = document.getElementById("idFilter").value;
     
-    // if (!id) {
-    //     getAllCarts(); // Si no hay ID, muestra todos
-    //     return;
-    // }
+//     if (!id) {
+//         getAllCarts(); // Si no hay ID, muestra todos
+//         return;
+//     }
     
-    let cart = await qeue(urlCarts + "/" + id, get);
+//     let cart = await qeue(urlCarts + "/" + id, get);
         
-    var container = document.getElementById("container");
-    container.innerHTML = "";
+//     var container = document.getElementById("container");
+//     container.innerHTML = "";
         
-    tableLoad(cart);
-}
+//     tableLoad(cart);
+// }
 
 async function getAddCart(event) {
     event.preventDefault();
