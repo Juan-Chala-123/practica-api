@@ -1,25 +1,23 @@
 async function getAllPosts(){
   var posts = await qeue(urlPosts, get);
 
-  var container = document.getElementById("container");
-  container.innerHTML = "";
-
-  posts.forEach(post => {
-    tableLoad(post);
-  });
+  console.log(posts)
+  table.clear();
+  table.rows.add(posts);
+  table.draw();
 }
 
-async function getFindByIdPost(){
-  var id = document.getElementById("idFilter").value;
+// async function getFindByIdPost(){
+//   var id = document.getElementById("idFilter").value;
 
-  let post = await qeue(urlPosts + "/" + id, get);
+//   let post = await qeue(urlPosts + "/" + id, get);
 
-  var container = document.getElementById("container");
+//   var container = document.getElementById("container");
 
-  container.innerHTML = "";
+//   container.innerHTML = "";
 
-  tableLoad(post);
-}
+//   tableLoad(post);
+// }
 
 async function getAddPost(event) {
   event.preventDefault();
