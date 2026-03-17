@@ -11,18 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     
     <!-- DataTables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css" />
-    <script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.min.css" />
 </head>
 <body>
     <div class="container">
         <h1>List Users</h1>
-        <label for="">Id</label>
-        <input id="idFilter" type="text" class="form-control" onkeyup="getFindByIdUser()">
-        <button class="btn btn-success" onclick="getAllUsers()">Consult</button>
+        <!-- <label for="">Id</label> -->
+        <!-- <input id="idFilter" type="text" class="form-control" onkeyup="getFindByIdUser()"> -->
+        <!-- <button class="btn btn-success" onclick="getAllUsers()">Consult</button> -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add User</button>
         <!-- <p id="Result"></p> -->
-        <table class="table" id="table-users">
+        <table id="table-users">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -32,9 +31,9 @@
                     <th>Accion</th>
                 </tr>
             </thead>
-            <tbody id="container">
+            <!-- <tbody id="container">
 
-            </tbody>
+            </tbody> -->
         </table>
     </div>
 
@@ -123,9 +122,12 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://cdn.datatables.net/2.3.7/js/dataTables.min.js"></script>
     <script src="/js/const.js"></script>
     <script src="/js/api.js"></script>
     <script src="/js/users/users.js"></script>
-    <script src="/js/table.js"></script>
+    <script src="/js/users/table.js"></script>
 </body>
 </html>
