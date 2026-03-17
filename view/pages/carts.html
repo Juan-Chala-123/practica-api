@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Carts</h1>
+        <label for="">Id</label>
+        <input id="idFilter" type="text" class="form-control" onkeyup="getFindByIdCart()">
+        <button class="btn btn-success" onclick="getAllCarts()">Consult</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">Add Cart</button>
+        <!-- <p id="Result"></p> -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>User</th>
+                    <th>Price</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody id="container">
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Ventana para agregar producto -->
+    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleAddLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleAddLabel">New Cart</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="mb-3">
+                        <label>User ID</label>
+                        <input type="number" class="form-control" id="userId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Product ID</label>
+                        <input type="number" class="form-control" id="productId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Quantity</label>
+                        <input type="number" class="form-control" id="quantity" value="1" min="1" required>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="getAddCart(event)">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana para actualizar producto -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleUpdateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleUpdateLabel">Update Cart</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="mb-3">
+                        <label>Product ID</label>
+                        <input type="number" class="form-control" id="productUpdate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>New Quantity</label>
+                        <input type="number" class="form-control" id="quantityUpdate" min="1" required>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" onclick="getUpdateCart(event)">Update</button>
+                    <p id="updateCartBtn"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para eliminar un producto -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Cart</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Desea eliminar el producto?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="getDeleteCart(event)">Delete</button>
+                <p id="deleteCartBtn"></p>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/const.js"></script>
+    <script src="/js/api.js"></script>
+    <script src="/js/carts/carts.js"></script>
+</body>
+</html>
