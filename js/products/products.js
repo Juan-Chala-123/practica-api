@@ -2,32 +2,30 @@
 async function getAllProducts(){
   var products = await qeue(urlProducts, get);
 
-  var container = document.getElementById("container");
-  container.innerHTML = "";
-
-  products.forEach(product => {
-    tableLoad(product);
-  });
+  console.log(products)
+  table.clear();
+  table.rows.add(products);
+  table.draw();
 }
 
 //función para consultar productos por id 
-async function getFindByIdProduct(){
-  // Obtenemos el valor del input donde el usuario ingresa el ID
-  var id = document.getElementById("idFilter").value;
+// async function getFindByIdProduct(){
+//   // Obtenemos el valor del input donde el usuario ingresa el ID
+//   var id = document.getElementById("idFilter").value;
 
-  // Llamada a la función qeue para hacer GET al endpoint específico del producto
-  // Se construye la URL concatenando el ID
-  let product = await qeue(urlProducts + "/" + id, get);
+//   // Llamada a la función qeue para hacer GET al endpoint específico del producto
+//   // Se construye la URL concatenando el ID
+//   let product = await qeue(urlProducts + "/" + id, get);
 
-  // Capturamos el contenedor de la tabla
-  var container = document.getElementById("container");
+//   // Capturamos el contenedor de la tabla
+//   var container = document.getElementById("container");
 
-  // Limpiamos la tabla antes de mostrar el producto buscado
-  container.innerHTML = "";
+//   // Limpiamos la tabla antes de mostrar el producto buscado
+//   container.innerHTML = "";
 
-  // Cargamos el producto en la tabla
-  tableLoad(product);
-}
+//   // Cargamos el producto en la tabla
+//   tableLoad(product);
+// }
 
 async function getAddProduct(event) {
   event.preventDefault();
