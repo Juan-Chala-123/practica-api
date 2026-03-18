@@ -8,12 +8,18 @@ function createTable({
     // Encabezados dinamicos
     generateTableHead(`#${tableId}-head`, columns);
 
+    const dataTableColumns = columns.map(col => ({
+        data: col.data,
+        // Si la columna tiene una función 'render', la incluimos
+        render: col.render 
+    }));
+
+    // Añadimos la columna de acciones al final
+    dataTableColumns.push({ data: null, orderable: false });
+
     return new DataTable(`#${tableId}`, {
         data,
-        columns: [
-            ...columns.map(col => ({ data: col.data })),
-            { data: null, orderable: false }
-        ],
+        columns: dataTableColumns,
 
         createdRow: function (row, rowData, dataIndex) {
 
